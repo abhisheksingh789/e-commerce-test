@@ -14,7 +14,7 @@ def signup():
     db = get_db()
     db.execute('INSERT INTO users (username, password, role) VALUES (?, ?, ?)', (username, password, 'user'))
     db.commit()
-    return jsonify({"message": "User created successfully!"}), 20
+    return jsonify({"message": "User created successfully!"}), 201
 
 
 
