@@ -42,3 +42,12 @@ def fetch_data():
         return response.text
     except Exception as e:
  
+
+ @app.route('/search', methods=['GET'])
+def search():
+    query = request.args.get('q', '')
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM products WHERE name LIKE ?", ('%' + query + '%',))
+    results = cursor.fetchall()
+    return jsonify(results)
