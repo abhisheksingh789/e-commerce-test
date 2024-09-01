@@ -29,7 +29,7 @@ def login():
         session['role'] = user[3]
         return jsonify({"message": "Logged in successfully!"})
     else:
-        return jsonify({"error": "Invalid credentials!"}), 401
+        return jsonify({"error": "Invalid credentials!"}), 40
 
 
 
